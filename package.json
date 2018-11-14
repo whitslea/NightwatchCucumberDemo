@@ -3,19 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js"
+    "test:setup": "babel-node test/server.js",
+    "test:run": "cucumber-js --require-module babel-core/register --require test/support --require step-definitions --format node_modules/cucumber-pretty",
+    "test": "start-server-and-test test:setup http-get://localhost:4444/status test:run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "chromedriver": "^2.43.1",
     "cucumber": "^5.0.2",
-    "env2": "^2.2.2",
-    "nightwatch": "^1.0.12",
-    "nightwatch-api": "^1.0.0",
-    "selenium-server": "^3.141.5",
-    "webdriver": "^5.0.0-alpha.7"
+    "cucumber-pretty": "^1.4.4",
+    "geckodriver": "^1.12.2",
+    "nightwatch": "1.0.11",
+    "nightwatch-api": "latest",
+    "start-server-and-test": "^1.7.9"
   },
   "description": "",
   "dependencies": {
