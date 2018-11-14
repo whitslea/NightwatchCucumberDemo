@@ -1,4 +1,3 @@
-// nightwatch.conf.js
 
 const chromedriver = require('chromedriver');
 const geckodriver = require('geckodriver');
@@ -9,7 +8,6 @@ module.exports = {
       webdriver: {
         start_process: true,
         server_path: chromedriver.path,
-        port: 4444,
         cli_args: ['--port=4444']
       },
       desiredCapabilities: {
